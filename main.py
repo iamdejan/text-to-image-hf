@@ -22,7 +22,7 @@ Generate an image of nasi lemak ayam, with these ingredients:
         # output is a PIL.Image object
         image = client.text_to_image(
             prompt,
-            model="black-forest-labs/FLUX.1-dev",
+            model="Tongyi-MAI/Z-Image-Turbo",
         )
         image.save("generated_flux_image.png")
         image.show()
