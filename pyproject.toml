@@ -1,0 +1,15 @@
+[project]
+name = "text-to-image-hf"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "accelerate>=1.13.0",
+    "diffusers>=0.37.1",
+    "invisible-watermark>=0.2.0",
+    "matplotlib>=3.10.9",
+    "pyqt6>=6.11.0",
+    "safetensors>=0.7.0",
+    "transformers>=5.6.2",
+]
