@@ -1309,6 +1309,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "accelerate" },
     { name = "diffusers" },
+    { name = "huggingface-hub" },
     { name = "invisible-watermark" },
     { name = "matplotlib" },
     { name = "pyqt6" },
@@ -1320,6 +1321,7 @@ dependencies = [
 requires-dist = [
     { name = "accelerate", specifier = ">=1.13.0" },
     { name = "diffusers", specifier = ">=0.37.1" },
+    { name = "huggingface-hub", specifier = ">=1.12.0" },
     { name = "invisible-watermark", specifier = ">=0.2.0" },
     { name = "matplotlib", specifier = ">=3.10.9" },
     { name = "pyqt6", specifier = ">=6.11.0" },
