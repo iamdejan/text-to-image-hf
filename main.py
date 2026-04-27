@@ -1,13 +1,10 @@
-from diffusers import DiffusionPipeline
-import torch
-import matplotlib.pyplot as plt
+import os
+from huggingface_hub import InferenceClient
 
 
 def main():
-    pipe = DiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-xl-base-1.0", torch_dtype=torch.float16, use_safetensors=True, variant="fp16")
-    pipe.to("cuda")
-
-    prompt = """
+    try:
+        prompt = """
 Generate an image of nasi lemak ayam, with these ingredients:
 1. Chicken drumsticks.
 2. Sambal.
@@ -15,24 +12,23 @@ Generate an image of nasi lemak ayam, with these ingredients:
 4. Ikan teri.
 5. Egg.
     """
-    image = pipe(prompt).images[0]
+        print("Generating image, please wait...")
 
-    # create figure
-    fig = plt.figure(figsize=(10, 7))
+        client = InferenceClient(
+            provider="fal-ai",
+            api_key=os.environ["HF_TOKEN"],
+        )
 
-    rows, columns = 2,2
+        # output is a PIL.Image object
+        image = client.text_to_image(
+            prompt,
+            model="Tongyi-MAI/Z-Image-Turbo",
+        )
+        image.save("image.png")
+        image.show()
 
-    # Adds a subplot at the 1st position
-    fig.add_subplot(rows, columns, 1)
-
-    # Showing the image
-    plt.imshow(image)
-    plt.axis('off')
-    plt.title("image")
-
-
-    # Saving Image locally
-    image.save("image.jpg")
+    except Exception as e:
+        print(f"Failed to generate image: {e}")
 
 
 if __name__ == "__main__":
