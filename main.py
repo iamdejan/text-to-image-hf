@@ -24,7 +24,7 @@ Generate an image of nasi lemak ayam, with these ingredients:
             prompt,
             model="Tongyi-MAI/Z-Image-Turbo",
         )
-        image.save("generated_flux_image.png")
+        image.save("image.png")
         image.show()
 
     except Exception as e:
