@@ -5,12 +5,12 @@ from huggingface_hub import InferenceClient
 def main():
     try:
         prompt = """
-Generate an image of nasi lemak ayam, with these ingredients:
-1. Chicken drumsticks.
+Generate an image of chicken nasi lemak, based on these ingredients:
+1. Chicken thighs and drumsticks.
 2. Sambal.
 3. Beans.
-4. Ikan teri.
-5. Egg.
+4. Deep fried anchovies.
+5. Sunny-side up egg.
     """
         print("Generating image, please wait...")
 
