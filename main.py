@@ -20,11 +20,12 @@ Generate an image of chicken nasi lemak, based on these ingredients:
         )
 
         # output is a PIL.Image object
+        model = "Tongyi-MAI/Z-Image-Turbo"
         image = client.text_to_image(
             prompt,
-            model="Tongyi-MAI/Z-Image-Turbo",
+            model=model,
         )
-        image.save("image.png")
+        image.save(f"{model}.png")
         image.show()
 
     except Exception as e:
