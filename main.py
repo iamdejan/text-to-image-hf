@@ -15,7 +15,7 @@ Generate an image of chicken nasi lemak, based on these ingredients:
         print("Generating image, please wait...")
 
         client = InferenceClient(
-            provider="fal-ai",
+            provider="replicate",
             api_key=os.environ["HF_TOKEN"],
         )
 
@@ -25,7 +25,8 @@ Generate an image of chicken nasi lemak, based on these ingredients:
             prompt,
             model=model,
         )
-        image.save(f"{model}.png")
+        model_file_name = model.replace("/", "-")
+        image.save(f"{model_file_name}.png")
         image.show()
 
     except Exception as e:
